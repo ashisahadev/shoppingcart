@@ -1,0 +1,27 @@
+<div>
+<h1>Shopping Cart</h1>
+
+  <table  width='70%' style='border-collapse: collapse;' align="center">
+    <tr *ngFor="let product of products" class="border_bottom">
+        <td><img [src]='product.imageurl' width="200px" height="200px"/><br />
+            <span class="sansserif1">   {{ product.offertext+' OFF' }}</span><br />
+            
+        </td>
+      <td ><span class="sansserif">{{ product.bname }}</span><br />
+        <span class="sansserif1">{{ product.pname }}</span><br />
+        <span class="sansserif1">{{ product.quantity }}&nbsp;L</span><br />
+        <span class="sansserif1">{{ 'MRP '+product.mrf }}</span><br />
+        <span class="sansserif2"> {{ 'RS '+product.price }}</span><br />
+        
+        <button mat-raised-button  class="white-icon" (click)="addProduct(product.id,product.price)">Add Cart</button>&nbsp;&nbsp;<button mat-mini-fab color="primary" (click)="addProduct(product.id,product.price)">+</button>&nbsp;{{ product.totalcarts }}&nbsp;<button mat-mini-fab color="primary" (click)="deleteProduct(product.id)">-</button>
+    </td>
+ 
+      
+    </tr>
+    
+    <tr><td><span class="sansserif1">Qty :{{totqty}}</span><br />
+        <span class="sansserif1">Total:{{totamt}}</span></td><td><button mat-raised-button  class="white-icon" (click)="openPopModel(totamt)">CHECKOUT</button></td></tr>
+  </table>
+</div>
+<footer>
+    <p align="center">&copy; All rights reserved for <i>ShoppingCart</i> 2020</p></footer>
